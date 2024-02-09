@@ -1,0 +1,39 @@
+$ yc compute instance create --name vm-otus-pg15-ubuntu20 --hostname vm-otus-pg15-ubuntu20 --create-boot-disk image-folder-id=standard-images,image-family=u
+buntu-2004-lts --zone ru-central1-a --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 --ssh-key ..\..\.ssh\ynd-cloud-id_ed25519.pub 
+done (37s)                                                                                                                                                  
+id: fhmmgov56cuknh6s5hs0                                                                                                                                    
+folder_id: b1gub8hmou7h27joa2oq                                                                                                                             
+created_at: "2024-02-08T21:54:45Z"                                                                                                                          
+name: vm-otus-pg15-ubuntu20                                                                                                                                 
+zone_id: ru-central1-a                                                                                                                                      
+platform_id: standard-v2                                                                                                                                    
+resources:                                                                                                                                                  
+  memory: "2147483648"                                                                                                                                      
+  cores: "2"                                                                                                                                                
+  core_fraction: "100"                                                                                                                                      
+status: RUNNING                                                                                                                                             
+metadata_options:                                                                                                                                           
+  gce_http_endpoint: ENABLED                                                                                                                                
+  aws_v1_http_endpoint: ENABLED                                                                                                                             
+  gce_http_token: ENABLED                                                                                                                                   
+  aws_v1_http_token: DISABLED                                                                                                                               
+boot_disk:                                                                                                                                                  
+  mode: READ_WRITE                                                                                                                                          
+  device_name: fhm5h15j9gkmoavj1sdh                                                                                                                         
+  auto_delete: true                                                                                                                                         
+  disk_id: fhm5h15j9gkmoavj1sdh                                                                                                                             
+network_interfaces:                                                                                                                                         
+  - index: "0"                                                                                                                                              
+    mac_address: d0:0d:16:86:3e:53                                                                                                                          
+    subnet_id: e9bin9nsvg9eij1o2dp6                                                                                                                         
+    primary_v4_address:                                                                                                                                     
+      address: 10.128.0.31                                                                                                                                  
+      one_to_one_nat:                                                                                                                                       
+        address: 51.250.73.251                                                                                                                              
+        ip_version: IPV4                                                                                                                                    
+gpu_settings: {}                                                                                                                                            
+fqdn: vm-otus-pg15-ubuntu20.ru-central1.internal                                                                                                            
+scheduling_policy: {}                                                                                                                                       
+network_settings:                                                                                                                                           
+  type: STANDARD                                                                                                                                            
+placement_policy: {}                                                                                                                                        
