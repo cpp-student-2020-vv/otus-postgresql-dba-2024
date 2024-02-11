@@ -1,0 +1,5 @@
+#linux shell should be always linux-style
+*.sh text eol=lf
+
+#windows cmd should be always windows-style
+*.cmd text eol=crlf
