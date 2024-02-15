@@ -1,0 +1,47 @@
+# field 'version' is actually ignored by Compose V2
+# version: '3.1'
+
+# volumes:
+#   pg_data:
+
+services:
+  pg-db-server:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=otus_db
+    volumes:
+      # - pg_data:/var/lib/postgresql/data
+      - ../pg-shared-data:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT:-8433}:5432
+    # networks:
+    #   - pg-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+#see https://github.com/peter-evans/docker-compose-healthcheck
+  pg-client:
+    image: postgres:15
+    command: psql -h pg-db-server -U postgres
+    tty: true
+    stdin_open: true
+    environment:
+      - PGPASSWORD=postgres
+    depends_on:
+      pg-db-server:
+        condition: service_healthy
+#     networks:
+#       - pg-net
+#     links:
+#       - pg-db-server
+
+# networks:
+#   pg-net:
+
+

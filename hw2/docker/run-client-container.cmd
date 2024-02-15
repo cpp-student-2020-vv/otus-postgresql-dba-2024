@@ -1,0 +1,1 @@
+docker run -it --rm --network docker_pg-net --name pg-client -e PGPASSWORD=postgres postgres:15 psql -h pg-db-server -U postgres 
